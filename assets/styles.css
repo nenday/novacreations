@@ -21,23 +21,6 @@ body {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     color: var(--text-color);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.6;
-}
-
-/* Header */
-header {
-    background-color: var(--card-bg);
-    padding: 1rem 2rem;
-    box-shadow: var(--shadow);
-    text-align: center;
-}
-
-header h1 {
-    font-size: 2rem;
-    color: var(--text-color);
-    font-weight: 700;
     letter-spacing: 1px;
 }
 
@@ -126,26 +109,6 @@ footer {
     text-align: center;
     padding: 1rem;
     background-color: var(--card-bg);
-    color: #777;
-    font-size: 0.9rem;
-    margin-top: auto;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-    }
-
-    header h1 {
-        font-size: 1.5rem;
-    }
-}
-
-/* Contact Button */
-.contact-section {
-    text-align: center;
-    margin-top: 2rem;
     padding-bottom: 2rem;
 }
 
