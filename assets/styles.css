@@ -26,7 +26,7 @@ body {
     line-height: 1.6;
 }
 
-/* Header */
+/* Header (Standard for subpages) */
 header {
     background-color: var(--card-bg);
     padding: 1rem 2rem;
@@ -41,7 +41,6 @@ header {
 
 .logo {
     max-width: 100px;
-    /* Reduced max-width */
     height: auto;
 }
 
@@ -64,72 +63,54 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    /* Ensure it takes full width if needed, but main has max-width. 
-       If user wants full width background, main should not have max-width restriction 
-       OR hero should be a wrapper outside main. 
-       The request said "Wrap the homepage’s main content inside a container with the class 'hero'. 
-       You may replace the current <main> tag with <main class='hero'>".
-       If I apply it to main, it will be limited by main's max-width if I don't override it.
-       Let's override max-width for .hero if it's the main tag, or ensure it spans correctly.
-       Actually, main has max-width: 1200px. If we want the background to be full width, 
-       we might need to change the structure or override main styles for .hero.
-       However, the prompt says "Apply the background ONLY on the homepage".
-       If I make main.hero full width, the content inside needs to be constrained.
-       Let's try to keep it simple first. If main is .hero, the background is on main.
-       If main is centered with max-width, the background will be limited to that box.
-       Usually "homepage background" implies full screen.
-       Let's override main styles for .hero to be full width, and put content in a container?
-       Or just let the background be on the body? No, request says "Wrap... inside a container... hero".
-       Let's assume the user might want full width.
-       But wait, the prompt says "Replace the current <main> tag with <main class='hero'>".
-       If I do that, I should probably unset max-width for .hero and add a container inside?
-       Or maybe the user is fine with the background being just the main area.
-       Let's stick to the prompt: "replace... with <main class='hero'>".
-       I will add specific styles for main.hero to ensure it looks good.
-       Actually, to get a full width background, I should probably make main.hero width 100% and max-width none.
-       Then the content inside needs to be constrained.
-       The current content is .grid-container and .contact-section.
-       I can constrain them in CSS.
-    */
     width: 100%;
     max-width: none;
-    /* Override default main max-width */
     padding: 4rem 2rem;
-    /* Add some padding */
     flex: 1;
+    min-height: 100vh;
+    /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center content vertically */
 }
 
-/* Fade out effect */
-.hero::after {
-    content: "";
+/* Hero Logo (Floating) */
+.hero-logo {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    /* Adjust height of fade */
-    background: linear-gradient(to bottom, transparent, var(--bg-color));
-    /* Fade to body bg color? Or footer bg? */
-    /* The body has a gradient background. var(--bg-color) is #f4f4f9. 
-       The body background is linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%).
-       Fading to a solid color might look weird if the body is gradient.
-       But the footer has background-color: var(--card-bg) which is white.
-       Wait, footer says background-color: var(--card-bg).
-       The prompt says "fade to the page background color near the footer".
-       I will try to fade to transparent or the bottom color of the body gradient.
-       Let's use a gradient to the approximate bottom color #c3cfe2.
-    */
-    background: linear-gradient(to bottom, transparent, #c3cfe2);
-    pointer-events: none;
-    z-index: 1;
+    top: 1rem;
+    left: 2rem;
+    max-width: 100px;
+    height: auto;
+    z-index: 10;
 }
 
-/* Ensure content sits above the overlay/fade */
+/* Hero Footer (Floating Text) */
+.hero-footer {
+    margin-top: auto;
+    /* Push to bottom */
+    color: white;
+    /* Light color for contrast */
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    /* Improve readability */
+    width: 100%;
+}
+
+/* Ensure content sits above the overlay */
 .hero>* {
     position: relative;
     z-index: 2;
+    /* max-width: 1200px;  Removed to allow full width footer/logo positioning */
+    /* margin: 0 auto; */
+    /* width: 100%; */
+}
+
+/* Constrain grid container width */
+.hero .grid-container {
     max-width: 1200px;
-    /* Constrain content width */
     margin: 0 auto;
     width: 100%;
 }
@@ -144,11 +125,12 @@ main {
 
 /* Updated Card Styles for Hero */
 .hero .card {
-    background-color: rgba(255, 255, 255, 0.95);
-    /* Semi-transparent white */
+    background-color: rgba(255, 255, 255, 0.96);
+    /* Slightly increased opacity */
     backdrop-filter: blur(5px);
-    /* Optional: adds a nice blur effect */
     border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Enhanced shadow */
 }
 
 .card {
@@ -211,7 +193,7 @@ main {
     font-size: 1.2rem;
 }
 
-/* Footer */
+/* Footer (Standard for subpages) */
 footer {
     text-align: center;
     padding: 1rem;
@@ -229,8 +211,16 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .logo {
-        max-width: 50px;
+    .logo,
+    .hero-logo {
+        max-width: 60px;
+        /* Adjusted for mobile */
+    }
+
+    .hero-logo {
+        left: 1rem;
+        /* Adjust padding for mobile */
+        top: 1rem;
     }
 }
 
@@ -239,6 +229,8 @@ footer {
     text-align: center;
     margin-top: 2rem;
     padding-bottom: 2rem;
+    width: 100%;
+    /* Ensure full width for centering */
 }
 
 .btn-contact {
