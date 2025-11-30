@@ -63,63 +63,6 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
-    width: 100%;
-    max-width: none;
-    padding: 4rem 2rem;
-    flex: 1;
-    min-height: 100vh;
-    /* Full viewport height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Center content vertically */
-}
-
-/* Hero Logo (Floating) */
-.hero-logo {
-    position: absolute;
-    top: 1rem;
-    left: 2rem;
-    max-width: 70px;
-    height: auto;
-    z-index: 10;
-}
-
-/* Hero Footer (Floating Text) */
-.hero-footer {
-    margin-top: auto;
-    /* Push to bottom */
-    color: white;
-    /* Light color for contrast */
-    text-align: center;
-    padding-bottom: 1rem;
-    font-size: 0.9rem;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    /* Improve readability */
-    width: 100%;
-}
-
-/* Ensure content sits above the overlay */
-.hero>* {
-    position: relative;
-    z-index: 2;
-    /* max-width: 1200px;  Removed to allow full width footer/logo positioning */
-    /* margin: 0 auto; */
-    /* width: 100%; */
-}
-
-/* Constrain grid container width */
-.hero .grid-container {
-    max-width: 1200px;
-    margin: 15px auto 0;
-    /* Lowered panels by 15px */
-    width: 100%;
-}
-
-/* Homepage Grid */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     padding: 2rem 0;
 }
