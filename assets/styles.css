@@ -111,7 +111,8 @@ main {
 /* Constrain grid container width */
 .hero .grid-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 15px auto 0;
+    /* Lowered panels by 15px */
     width: 100%;
 }
 
@@ -231,6 +232,11 @@ footer {
     padding-bottom: 2rem;
     width: 100%;
     /* Ensure full width for centering */
+}
+
+.hero .contact-section {
+    margin-top: 2.3rem;
+    /* Lowered contact button by ~5px */
 }
 
 .btn-contact {
