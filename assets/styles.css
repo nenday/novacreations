@@ -21,7 +21,26 @@ body {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     color: var(--text-color);
     min-height: 100vh;
-    letter-spacing: 1px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: var(--card-bg);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Align to the left */
+}
+
+.logo {
+    max-width: 70px;
+    /* Reduced max-width */
+    height: auto;
 }
 
 /* Main Content */
@@ -109,6 +128,26 @@ footer {
     text-align: center;
     padding: 1rem;
     background-color: var(--card-bg);
+    color: #777;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .logo {
+        max-width: 50px;
+    }
+}
+
+/* Contact Button */
+.contact-section {
+    text-align: center;
+    margin-top: 2rem;
     padding-bottom: 2rem;
 }
 
