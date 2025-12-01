@@ -57,7 +57,7 @@ main {
 
 /* Hero Section (Homepage Background) */
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35)), url('mainbackground.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.35)), url('whitefuturisticbackground.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
