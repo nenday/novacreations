@@ -21,32 +21,6 @@ body {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     color: var(--text-color);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    line-height: 1.6;
-}
-
-/* Header (Standard for subpages) */
-header {
-    background-color: var(--card-bg);
-    padding: 1rem 2rem;
-    box-shadow: var(--shadow);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    position: relative;
-    z-index: 10;
-}
-
-.logo {
-    max-width: 100px;
-    height: auto;
-}
-
-/* Main Content */
-main {
-    flex: 1;
-    padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
